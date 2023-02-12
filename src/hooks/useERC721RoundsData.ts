@@ -1,5 +1,5 @@
 import { ERC721Round } from '@interplanetary-lab/smart-contracts-ethers-js';
-import { useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import { useERCRoundsData, useERCRoundsDataOptions } from './useERCRoundsData';
 
@@ -11,20 +11,28 @@ export const useERC721RoundsData = ({
 }: useERC721RoundsDataOptions) => {
   const [totalSupply, setTotalSupply] = useState<number>(0);
 
-  const roundsData = useERCRoundsData<ERC721Round>({
-    onSyncData: (data: { totalSupply: number }) => {
+  const onSyncDataMemorized = useCallback(
+    (data: { totalSupply: number }) => {
       setTotalSupply(data.totalSupply);
       if (onSyncData) {
         onSyncData(data as never);
       }
     },
+    [onSyncData],
+  );
+
+  const roundsData = useERCRoundsData<ERC721Round>({
+    onSyncData: onSyncDataMemorized,
     ...otherProps,
   });
 
-  return {
-    /** The contract total supply */
-    totalSupply,
+  return useMemo(
+    () => ({
+      /** The supply foreach tokenId used in rounds and updated with `syncData` */
+      totalSupply,
 
-    ...roundsData,
-  };
+      ...roundsData,
+    }),
+    [totalSupply, roundsData],
+  );
 };

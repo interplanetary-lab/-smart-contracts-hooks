@@ -92,12 +92,8 @@ export const useERCRoundsData = <RoundType extends ERCRound>({
     }
   }, [endpoint, onSyncData]);
 
-  // On `endpoint` change
+  // syncData
   useEffect(() => {
-    if (!endpoint) {
-      return;
-    }
-
     // Timeout for avoid two nearby sync at page loading
     const firstSyncInterval = setTimeout(() => {
       syncData();
@@ -114,7 +110,7 @@ export const useERCRoundsData = <RoundType extends ERCRound>({
       clearInterval(firstSyncInterval);
       clearInterval(syncEveryMinInterval);
     };
-  }, [endpoint, syncInterval, syncData]);
+  }, [syncInterval, syncData]);
 
   // On `rounds` change
   useEffect(() => {
