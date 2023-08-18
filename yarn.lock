@@ -1436,10 +1436,10 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@interplanetary-lab/smart-contracts-ethers-js@0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@interplanetary-lab/smart-contracts-ethers-js/-/smart-contracts-ethers-js-0.2.1.tgz#a3f85588c1cbad0935cbeb4fe8974e70240d73bc"
-  integrity sha512-B6+I2LhNd8iqZZrYlMvQApYrJ0ep+qYYnbmm4tvUvNjynmPtNq6V7wOC7CHlXaEadULIlwT5zk4KE5gFOGJNjw==
+"@interplanetary-lab/smart-contracts-ethers-js@0.2.6":
+  version "0.2.6"
+  resolved "https://registry.yarnpkg.com/@interplanetary-lab/smart-contracts-ethers-js/-/smart-contracts-ethers-js-0.2.6.tgz#f40340dff2a040f71333b8a254cfe6beadc25791"
+  integrity sha512-4DBkgD91T4S2uxxa5N50WJfLo568IEG9decxoJqF7ElL5eFgX8e8vTnFLTUdkXgz9q+i9hOY2dliBJ7XqyV7WQ==
   dependencies:
     ethers "5.7.2"
 
